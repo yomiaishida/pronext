@@ -13,7 +13,7 @@ export default function Navbar() {
           alt="ProGadget Logo"
           width={40}
           height={40}
-          className="bg-primary rounded-full"
+          className=""
         />
         <span className="text-xl font-semibold text-foreground">ProGadget</span>
       </Link>
