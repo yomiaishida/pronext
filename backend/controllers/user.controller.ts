@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { asyncHandler } from "../middleware/asyncHandler";
-import { generateToken } from "../utils/generateToken";
-import { createUser, findUserByEmail } from "../services/user.service";
+import { asyncHandler } from "../middleware/asyncHandler.js";
+import { generateToken } from "../utils/generateToken.js";
+import { createUser, findUserByEmail } from "../services/user.service.js";
 
 /**
  * Registers a new user.

@@ -1,6 +1,6 @@
 import express from "express";
-import { registerUser, login } from "../controllers/user.controller";
-import { validateRequest } from "../middleware/validateRequest";
+import { registerUser, login } from "../controllers/user.controller.js";
+import { validateRequest } from "../middleware/validateRequest.js";
 import Joi from "joi";
 
 const router = express.Router();
