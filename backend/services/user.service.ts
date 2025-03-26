@@ -1,11 +1,11 @@
-import User from "../models/user.model";
+import { User, IUser } from "../models/user.model";
 import bcrypt from "bcryptjs";
 
 export const createUser = async (
   username: string,
   email: string,
   password: string
-) => {
+): Promise<IUser> => {
   const userExists = await User.findOne({ email });
 
   // Check if user already exists
@@ -25,4 +25,8 @@ export const createUser = async (
   });
 
   return user;
+};
+
+export const findUserByEmail = async (email: string) => {
+  return await User.findOne({ email });
 };
