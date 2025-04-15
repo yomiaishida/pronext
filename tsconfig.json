@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "backend/src/server.js"
+    "backend/src/server.js",
+    "backend/tsconfig.json"
   ],
   "exclude": ["node_modules"]
 }
