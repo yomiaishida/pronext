@@ -1,4 +1,6 @@
 "use client";
+
+import { useCategory } from "@/context/categoryContext";
 import { ShoppingCart, User, Search } from "lucide-react";
 import {
   DropdownMenu,
@@ -10,7 +12,17 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+
 export default function Navbar() {
+  const { setSelectedCategory } = useCategory();
+
+  const categories = [
+    "All",
+    "Smartphones",
+    "Laptops",
+    "Smartwatches",
+    "Accessories",
+  ];
   return (
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 shadow-md backdrop-filter backdrop-blur-lg border-b border-white/20 z-50">
       {/* Logo */}
@@ -36,21 +48,14 @@ export default function Navbar() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start">
-          <DropdownMenuItem asChild>
-            <Link href="/products">All</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/products/smartphones">Smartphones</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/products/laptops">Laptops</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/products/smartwatches">Smartwatches</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/products/accessories">Accessories</Link>
-          </DropdownMenuItem>
+          {categories.map((category) => (
+            <DropdownMenuItem
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
 
